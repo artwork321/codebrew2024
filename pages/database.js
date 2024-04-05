@@ -1,4 +1,6 @@
-fetch('./charities.json')
+fetch('./charities.json', {
+    mode: 'no-cors'
+})
     .then(response => response.json())
     .then(data => {
         // Process the JSON data
