@@ -1,0 +1,95 @@
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+header {
+    display: flex;
+    background-color: #FE72A9;
+    gap: 50px;
+    padding: 5px 100px;
+    color: #F9FAF8;
+
+}
+
+header img {
+    margin-right: auto;
+}
+
+header h2 {
+    font-size: 18px;
+}
+
+/* First Section */
+.first_sec {
+    display: flex;
+    padding: 30px 90px;
+}
+
+.first_sec h1 {
+    margin-bottom: 0;
+    font-size: 40px;
+}
+
+.homepage_text {
+    margin-top: 10px;
+    margin-right: 20px;
+}
+
+.button {
+    width: 200px;
+    border-radius: 15px;
+    background-color: #DD4470;
+    color: whitesmoke;
+    padding: 20px;
+    text-align: center;
+    margin-top: 50px;
+}
+
+/* Second section */
+.second_sec {
+    display: flex;
+    padding: 30px 90px;
+}
+
+.second_sec .item {
+    text-align: center;
+}
+
+
+/* Footer */
+footer {
+    display: flex;
+    flex-direction: row;
+    background-color: #DD4470;
+    padding: 10px 200px 30px;
+    color: whitesmoke;
+    border-top: 3px solid black;
+}
+
+.info {
+    margin-right: auto;
+    width: 70%;
+}
+
+footer label {
+    display: inline;
+}
+
+footer input {
+    width: 50%;
+    border: none;
+    border-bottom: 2px solid black;
+    background-color: #DD4470;
+    color: whitesmoke;
+}
+
+button {
+    width: 12%;
+    border-radius: 15px;
+    border: none;
+    background-color: whitesmoke;
+    color: black;
+    text-align: center;
+    margin-top: 25px;
+    font-size: 16px;
+}
