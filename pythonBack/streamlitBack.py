@@ -30,11 +30,6 @@ def display_image(url):
     else:
         st.write("Failed to load image")
 
-custom_style = {
-    "font-family": "Calibri",
-    "font-size": "18px"
-}
-
 
 def aged_care():
     # Title
@@ -493,7 +488,7 @@ def main():
         purpose = 'The Salvation Army, established in 1883, provides vital social services across Australia, including emergency aid and rehabilitation programs. It offers support to individuals and families in need, assisting with various challenges they may face.'
 
         # Display the information
-        st.write(f"Name: {name}", style=custom_style)
+        st.write(f"Name: {name}")
         st.write(f"Purpose: {purpose}")
         salvo_button = st.button('More Information')
 
