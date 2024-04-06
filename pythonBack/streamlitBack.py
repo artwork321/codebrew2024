@@ -478,6 +478,51 @@ def main():
         
     )
 
+    row2 = option_menu(
+        menu_title      =   None,
+        options         =   ['St. Vincent de Paul Society (Vinnies)', 'Cancer Council Australia', 'Australian Red Cross', 'Oxfam Australia'],
+        menu_icon       =   None,
+        default_index   =   0,
+        orientation     =   'horizontal',
+        styles = {
+            "container": {
+                "display": "flex",
+                "padding": "20px 40px",
+                "gap": "50px",
+                "box-shadow": "0px 8px 8px -2px rgba(0, 0, 0, 0.341)",
+                "background-color": "#64B661"
+            },
+            "menu-title": {
+                "font-size": "35px",
+                "text-decoration": "none",
+                "color": "black",
+                "font-family": "'Calibri'",
+                "margin-right": "auto"
+            },
+            "nav": {
+                "list-style-type": "none",
+                "padding": "0",
+                "margin": "0"
+            },
+            "nav-link": {
+                "font-size": "25px",
+                "text-decoration": "none",
+                "color": "black",
+                "font-family": "'Calibri'",
+                "background-color": "#64B661"  # Background color
+            },
+            # Remove hover effect
+            "nav-link:hover": {
+                "color": "inherit",
+                "background-color": "inherent"
+            },
+            "icon": {
+            "display": "none"
+            },
+        }
+        
+    )
+
     if row1 == 'Salvation Army':
 
         # Displaying Dataframes and Images
@@ -546,50 +591,7 @@ def main():
 
 
 
-    row2 = option_menu(
-        menu_title      =   None,
-        options         =   ['St. Vincent de Paul Society (Vinnies)', 'Cancer Council Australia', 'Australian Red Cross', 'Oxfam Australia'],
-        menu_icon       =   None,
-        default_index   =   0,
-        orientation     =   'horizontal',
-        styles = {
-            "container": {
-                "display": "flex",
-                "padding": "20px 40px",
-                "gap": "50px",
-                "box-shadow": "0px 8px 8px -2px rgba(0, 0, 0, 0.341)",
-                "background-color": "#64B661"
-            },
-            "menu-title": {
-                "font-size": "35px",
-                "text-decoration": "none",
-                "color": "black",
-                "font-family": "'Calibri'",
-                "margin-right": "auto"
-            },
-            "nav": {
-                "list-style-type": "none",
-                "padding": "0",
-                "margin": "0"
-            },
-            "nav-link": {
-                "font-size": "25px",
-                "text-decoration": "none",
-                "color": "black",
-                "font-family": "'Calibri'",
-                "background-color": "#64B661"  # Background color
-            },
-            # Remove hover effect
-            "nav-link:hover": {
-                "color": "inherit",
-                "background-color": "inherent"
-            },
-            "icon": {
-            "display": "none"
-            },
-        }
-        
-    )
+    
 
 
     if row2 == 'St. Vincent de Paul Society (Vinnies)':
