@@ -4,6 +4,8 @@ import requests
 from io import BytesIO
 from PIL import Image
 
+file_url = 'https://raw.githubusercontent.com/artwork321/crewcode2024/hedy/pages/datadotgov_ais19_editedsheet.csv'
+
 def database_loader(charity):
     def read_csv_file(file_path):
         try:
