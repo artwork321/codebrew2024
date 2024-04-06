@@ -429,7 +429,6 @@ with st.sidebar:
     }
     )
 
-@st.cache
 def main():
     st.title('Charities')
     
@@ -609,7 +608,7 @@ def main():
         vinnies_button = st.button('More Information!!')
 
         if vinnies_button == True:
-            database_loader('St. Vincent de Paul Society (Vinnies)')
+            st.page_link("pages/StVincent.py")
 
     if row2 == 'Cancer Council Australia':
         # Displaying Dataframes and Images
