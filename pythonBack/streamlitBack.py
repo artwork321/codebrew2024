@@ -593,7 +593,7 @@ def main():
 
     
 
-
+    # Display row 2
     if row2 == 'St. Vincent de Paul Society (Vinnies)':
 
         # Displaying Dataframes and Images
