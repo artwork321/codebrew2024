@@ -35,7 +35,7 @@ def database_loader(charity):
             st.write("Failed to load image")
 
     # Inputting File Path
-    file_path = r"mainpage.csv"
+    file_path = r"pythonBack/mainpage.csv"
     data = read_csv_file(file_path)
 
     if data is not None:
