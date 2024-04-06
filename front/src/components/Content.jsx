@@ -1,6 +1,6 @@
 // Main.js
 import React from 'react';
-import { Link } from "react-router-dom";
+import { Link } from "react-scroll";
 
 function Content() {
     return (
@@ -8,7 +8,7 @@ function Content() {
             <div className="introduction">
                 <h1>Flach</h1>
                 <h2>Connecting you to charities</h2>
-                <Link to="database">
+                <Link to="charities">
                     <p className="button">find a charity</p>
                 </Link>
             </div>

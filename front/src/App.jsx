@@ -6,12 +6,14 @@ import Content from './components/Content.jsx';
 import Footer from './components/Footer.jsx';
 import About from './components/About.jsx';
 import Faqs from './components/Faqs.jsx';
+import Database from './components/Database.jsx'
 
 function App() {
     return (
         <div>
             <Navbar />
             <Content />
+            <Database />
             <About />
             <Faqs />
             <Footer />

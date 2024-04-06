@@ -1,6 +1,5 @@
 import React from "react";
-import Navbar
-    from "../components/Navbar";
+
 import './database.css';
 import aged from '../images/aged.jpg';
 import animal from '../images/animal.jpg';
@@ -13,8 +12,6 @@ import hospital from '../images/hospital.jpg';
 function Database() {
     return (
         <div>
-            <Navbar></Navbar>
-
             <h1>find a charity</h1>
             <div id="charities">
                 <Organisation image={aged} text="Aged care" />
