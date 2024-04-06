@@ -6,7 +6,7 @@ Flach is a website developed for the Codebrew 2024 hackathon.
 
 ## Demo
 
-[Link to live demo, if available]
+[[Semo Website]](https://main--flach-codebrew.netlify.app/)
 
 
 ## Technologies Used
@@ -17,7 +17,7 @@ Flach is a website developed for the Codebrew 2024 hackathon.
 
 ## Features
 
-- Search for charitable organizations by category or location
+- Search for charitable organizations by category
 - View detailed information about each organization
 
 ## Getting Started
@@ -52,7 +52,10 @@ To get started with Flach, follow these steps:
 
 
 ## Authors
-
+- Andre: [link to your profile]
+- Christine: [link to your profile]
+- Hedy: [link to your profile]
+- Lam: [link to your profile]
 
 ## Acknowledgements
 
