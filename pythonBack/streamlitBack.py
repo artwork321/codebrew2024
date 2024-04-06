@@ -75,7 +75,7 @@ def aged_care():
 
             # Display the selected page
             st.write(f"## Page {page_number} - Rows {start_idx + 1} to {end_idx} of {len(filtered_df)}")
-            st.write(filtered_df[start_idx:end_idx], hide_index = False)
+            st.dataframe(filtered_df[start_idx:end_idx], hide_index = True)
 
     except FileNotFoundError:
         st.error("File not found. Please check the file path.")
@@ -164,7 +164,7 @@ def economic_social_and_community_development():
 
             # Display the selected page
             st.write(f"## Page {page_number} - Rows {start_idx + 1} to {end_idx} of {len(filtered_df)}")
-            st.write(filtered_df[start_idx:end_idx], hide_index=True)
+            st.write(filtered_df[start_idx:end_idx])
 
     except FileNotFoundError:
         st.error("File not found. Please check the file path.")
@@ -209,7 +209,7 @@ def emergency_relief():
 
             # Display the selected page
             st.write(f"## Page {page_number} - Rows {start_idx + 1} to {end_idx} of {len(filtered_df)}")
-            st.write(filtered_df[start_idx:end_idx], hide_index = False)
+            st.write(filtered_df[start_idx:end_idx])
 
     except FileNotFoundError:
         st.error("File not found. Please check the file path.")
@@ -253,7 +253,7 @@ def environmental_activities():
 
             # Display the selected page
             st.write(f"## Page {page_number} - Rows {start_idx + 1} to {end_idx} of {len(filtered_df)}")
-            st.write(filtered_df[start_idx:end_idx], hide_index = False)
+            st.write(filtered_df[start_idx:end_idx])
 
     except FileNotFoundError:
         st.error("File not found. Please check the file path.")
@@ -296,7 +296,7 @@ def emergency_relief():
 
             # Display the selected page
             st.write(f"## Page {page_number} - Rows {start_idx + 1} to {end_idx} of {len(filtered_df)}")
-            st.write(filtered_df[start_idx:end_idx], hide_index = False)
+            st.write(filtered_df[start_idx:end_idx])
 
     except FileNotFoundError:
         st.error("File not found. Please check the file path.")
@@ -340,7 +340,7 @@ def environmental_activities():
 
             # Display the selected page
             st.write(f"## Page {page_number} - Rows {start_idx + 1} to {end_idx} of {len(filtered_df)}")
-            st.write(filtered_df[start_idx:end_idx], hide_index = False)
+            st.write(filtered_df[start_idx:end_idx])
 
     except FileNotFoundError:
         st.error("File not found. Please check the file path.")
@@ -384,7 +384,7 @@ def hospital_services():
 
             # Display the selected page
             st.write(f"## Page {page_number} - Rows {start_idx + 1} to {end_idx} of {len(filtered_df)}")
-            st.write(filtered_df[start_idx:end_idx], hide_index = False)
+            st.write(filtered_df[start_idx:end_idx])
 
     except FileNotFoundError:
         st.error("File not found. Please check the file path.")
