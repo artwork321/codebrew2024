@@ -432,6 +432,8 @@ with st.sidebar:
 
 def main():
     st.title('Charities')
+    row1 = st.session_state.get('row1', 'Salvation Army')
+    row2 = st.session_state.get('row2', 'St. Vincent de Paul Society (Vinnies)')
 
     row1 = option_menu(
         menu_title      =   None,
@@ -657,6 +659,9 @@ def main():
         if oxfam_button == True:
             database_loader('Oxfam Australia')
 
+    # Store the selected options in session state
+    st.session_state.row1 = row1
+    st.session_state.row2 = row2
 
 if selected == 'Main':
     main()
