@@ -5,10 +5,9 @@ function Footer() {
     return (
         <footer>
             <div id="contact">
-                <h3>Sign up for new updates now!</h3>
-                <label htmlFor="mail">Email: <input id="mail" type="email" /></label>
+                <h3>Github repository:</h3>
+                <a href="https://github.com/artwork321/codebrew2024">Flach@Codebrew2024</a>
             </div>
-            <button>submit</button>
         </footer>
     );
 }
