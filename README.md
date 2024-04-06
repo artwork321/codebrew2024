@@ -51,10 +51,10 @@ To get started with Flach, follow these steps:
 5. Open it in your browser to view the project.
 
 ## Authors
-- Andre: [\[link to your profile\]](https://github.com/NoNam312)
+- Andre: [\[link to Andre profile\]](https://github.com/NoNam312)
 - Christine: [\[link to Christine profile\]](https://github.com/kistxe)
 - Hedy: [\[link to Hedy profile\]](https://github.com/h3dysh1)
-- Lam: [\[link to your profile\]](https://github.com/artwork321)
+- Lam: [\[link to Lam profile\]](https://github.com/artwork321)
 
 ## Acknowledgements
 - Images from Unsplash
