@@ -1,7 +1,11 @@
+#importing Streamlit Module
 import streamlit as st
-import pandas as pd
+from streamlit_option_menu import option_menu
+from PIL import Image
 import requests
-from io import StringIO
+from io import BytesIO, StringIO
+import pandas as pd
+
 
 st.set_page_config(layout="wide") 
 
@@ -9,18 +13,27 @@ st.set_page_config(layout="wide")
 file_url = 'https://raw.githubusercontent.com/artwork321/crewcode2024/hedy/pages/datadotgov_ais19_editedsheet.csv'
 
 # Functions for each of the pages
-def home():
-    st.header('To be filled')
-    try:
-        # Fetch the database file
-        df = pd.read_csv(file_url)
 
-        # Display the database
-        st.dataframe(df)
 
-    except Exception as e:
-        st.error(f"Error: {str(e)}")
 
+#A Function used for displaying images
+def display_image(url):
+    response = requests.get(url)
+    if response.status_code == 200:
+        image_data = response.content
+        # Open the image using Pillow
+        image = Image.open(BytesIO(image_data))
+        # Resize the image to 100x100
+        image_resized = image.resize((100, 100))
+        # Display the image in Streamlit
+        st.image(image_resized, use_column_width=False)
+    else:
+        st.write("Failed to load image")
+
+custom_style = {
+    "font-family": "Calibri",
+    "font-size": "18px"
+}
 
 
 def aged_care():
@@ -62,19 +75,11 @@ def aged_care():
 
             # Display the selected page
             st.write(f"## Page {page_number} - Rows {start_idx + 1} to {end_idx} of {len(filtered_df)}")
-            st.dataframe(filtered_df[start_idx:end_idx])
+            st.write(filtered_df[start_idx:end_idx], index = False)
 
     except FileNotFoundError:
         st.error("File not found. Please check the file path.")
 
-
-# Sidebar setup
-st.sidebar.title('Navigation')
-
-#Sidebar navigation
-options = st.sidebar.selectbox('Our Pages', ['Home', 'Aged Care', 'Animal Protection', 
-'Economic Social & Community Development', 'Emergency Relief', 'Environmental Activities', 
-'Hospital Services & Rehabilitation Activities'])
 
 def animal_protection():
     # Title
@@ -115,7 +120,7 @@ def animal_protection():
 
             # Display the selected page
             st.write(f"## Page {page_number} - Rows {start_idx + 1} to {end_idx} of {len(filtered_df)}")
-            st.dataframe(filtered_df[start_idx:end_idx])
+            st.write(filtered_df[start_idx:end_idx], index = False)
 
     except FileNotFoundError:
         st.error("File not found. Please check the file path.")
@@ -159,7 +164,7 @@ def economic_social_and_community_development():
 
             # Display the selected page
             st.write(f"## Page {page_number} - Rows {start_idx + 1} to {end_idx} of {len(filtered_df)}")
-            st.dataframe(filtered_df[start_idx:end_idx])
+            st.write(filtered_df[start_idx:end_idx], index = False)
 
     except FileNotFoundError:
         st.error("File not found. Please check the file path.")
@@ -204,7 +209,7 @@ def emergency_relief():
 
             # Display the selected page
             st.write(f"## Page {page_number} - Rows {start_idx + 1} to {end_idx} of {len(filtered_df)}")
-            st.dataframe(filtered_df[start_idx:end_idx])
+            st.write(filtered_df[start_idx:end_idx], index = False)
 
     except FileNotFoundError:
         st.error("File not found. Please check the file path.")
@@ -248,7 +253,7 @@ def environmental_activities():
 
             # Display the selected page
             st.write(f"## Page {page_number} - Rows {start_idx + 1} to {end_idx} of {len(filtered_df)}")
-            st.dataframe(filtered_df[start_idx:end_idx])
+            st.write(filtered_df[start_idx:end_idx], index = False)
 
     except FileNotFoundError:
         st.error("File not found. Please check the file path.")
@@ -291,7 +296,7 @@ def emergency_relief():
 
             # Display the selected page
             st.write(f"## Page {page_number} - Rows {start_idx + 1} to {end_idx} of {len(filtered_df)}")
-            st.dataframe(filtered_df[start_idx:end_idx])
+            st.write(filtered_df[start_idx:end_idx], index = False)
 
     except FileNotFoundError:
         st.error("File not found. Please check the file path.")
@@ -335,7 +340,7 @@ def environmental_activities():
 
             # Display the selected page
             st.write(f"## Page {page_number} - Rows {start_idx + 1} to {end_idx} of {len(filtered_df)}")
-            st.dataframe(filtered_df[start_idx:end_idx])
+            st.write(filtered_df[start_idx:end_idx], index = False)
 
     except FileNotFoundError:
         st.error("File not found. Please check the file path.")
@@ -379,72 +384,259 @@ def hospital_services():
 
             # Display the selected page
             st.write(f"## Page {page_number} - Rows {start_idx + 1} to {end_idx} of {len(filtered_df)}")
-            st.dataframe(filtered_df[start_idx:end_idx])
+            st.write(filtered_df[start_idx:end_idx], index = False)
 
     except FileNotFoundError:
         st.error("File not found. Please check the file path.")
 
 
 
-# Function to render the charity information based on user input
-def charity_info():
-    # Title
-    st.title("Charity Information")
 
-    # Text input for user to enter charity name
-    charity_name = st.text_input("Enter the name of the charity:", '')
 
-    try:
-        # Fetch and display data
-        df = pd.read_csv(file_url)
+
+#Development of the Sidebar
+with st.sidebar:
+    selected = option_menu(
+        menu_title      =   'Filters',
+        options         =   ['Main', 'Aged care', 'Animal protection', 'Economic social and community development', 'Emergency relief', 'Environmental activities', 'Hospital services and rehabilitation activities'],
+        menu_icon       =   'filter',
+        default_index   =   0,
+        styles = {
+        "container": {
+            "display": "flex",
+            "padding": "20px 40px",
+            "gap": "50px",
+            "box-shadow": "0px 8px 8px -2px rgba(0, 0, 0, 0.341)",
+            "background-color": "#A8D6A7",
+        },
+        "menu-title": {
+            "font-size": "35px",
+            "text-decoration": "none",
+            "color": "black",
+            "font-family": "'Calibri'",
+            "margin-right": "auto"
+        },
+        "nav": {
+            "list-style-type": "none",
+            "padding": "0",
+            "margin": "0"
+        },
+        "nav-link": {
+            "font-size": "25px",
+            "text-decoration": "none",
+            "color": "black",
+            "font-family": "'Calibri'"
+        },
+        "nav-link:hover": {
+            "color": "#A8D6A7"
+        }
+    }
+    )
+
+
+def main():
+    st.title('Charities')
+
+    row1 = option_menu(
+        menu_title      =   None,
+        options         =   ['Caritas', 'World Vision Australia', 'The Smith Family', 'RSPCA Australia'],
+        menu_icon       =   None,
+        default_index   =   0,
+        orientation     =   'horizontal',
+        styles = {
+            "container": {
+                "display": "flex",
+                "padding": "20px 40px",
+                "gap": "50px",
+                "box-shadow": "0px 8px 8px -2px rgba(0, 0, 0, 0.341)",
+                "background-color": "#64B661"
+            },
+            "menu-title": {
+                "font-size": "35px",
+                "text-decoration": "none",
+                "color": "black",
+                "font-family": "'Calibri'",
+                "margin-right": "auto"
+            },
+            "nav": {
+                "list-style-type": "none",
+                "padding": "0",
+                "margin": "0"
+            },
+            "nav-link": {
+                "font-size": "25px",
+                "text-decoration": "none",
+                "color": "black",
+                "font-family": "'Calibri'",
+                "background-color": "#64B661"  # Background color
+            },
+            # Remove hover effect
+            "nav-link:hover": {
+                "color": "inherit",
+                "background-color": "inherent"
+            },
+            "icon": {
+            "display": "none"
+            },
+        }
         
-        # Filter the dataset based on the entered charity name
-        filtered_df = df[df['charity name'].str.contains(charity_name, case=False)].copy()
+    )
 
-        # Select only the desired columns (charity name, how purposes were pursued, and age group columns)
-        filtered_df = filtered_df[['charity name', 'how purposes were pursued', 'aboriginal or tsi', 'adults 25 to 65', 
-                                    'early childhood - under 6', 'adults - 65 and over', 'children 6 to under 15', 
-                                    'communities overseas', 'families', 'financially disadvantaged people', 
-                                    'gay lesbian bisexual transgender or intersex persons', 'general community in australia', 
-                                    'males', 'migrants refugees or asylum seekers', 'pre or post release offenders', 
-                                    'people with chronic illness', 'people with disabilities', 'people from a CALD background', 
-                                    'people at risk of homelessness', 'people in rural/regional/remote communities', 
-                                    'unemployed persons', 'veterans or their families', 'victims of crime', 'victims of disasters',
-                                    'females', 'youth 15 to U25']]
+    if row1 == 'Caritas':
 
-        # Combine the age group columns into a single column containing tags
-        filtered_df['specific groups of people'] = filtered_df.iloc[:, 2:].apply(lambda x: ',  '.join(x.index[x == 'y']), axis=1)
+        # Displaying Dataframes and Images
+        display_image('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiURz1xi1_VpLK2qwAGULMHmG1UGwRUX_DVwuTUnlOTw&s')
 
-        # Drop the individual age group columns
-        filtered_df.drop(filtered_df.columns[2:-1], axis=1, inplace=True)
+        # Caritas Dataframe
+        name = 'Caritas'
+        purpose = 'Caritas Internationalis is a global network of Catholic charitable organizations, operating in over 200 countries. It provides aid, promotes social justice, and empowers communities in need worldwide.'
 
-        # Display the filtered dataset
-        st.dataframe(filtered_df)
+        # Display the information
+        st.write(f"Name: {name}", style=custom_style)
+        st.write(f"Purpose: {purpose}")
 
-    except Exception as e:
-        st.error(f"Error: {str(e)}")
+    if row1 == 'World Vision Australia':
+        # Displaying Dataframes and Images
+        display_image('https://pbs.twimg.com/profile_images/1009985406069141504/c_0KvxaW_400x400.jpg')
+
+        # World Vision Australia Dataframe
+        name = 'World Vision Australia'
+        purpose = 'World Vision Australia is a humanitarian organization dedicated to helping children and communities in need through various programs, including child sponsorship, emergency relief, and community development.'
+
+        # Display the information
+        st.write(f"Name: {name}")
+        st.write(f"Purpose: {purpose}")
+
+    if row1 == 'The Smith Family':
+        display_image('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnIz-AXLJ8KIPuKuJO2wJbPQVnXipcpqY449AMghhZmw&s')
+
+        # RSPCA Australia Dataframe
+        name = 'RSPCA Australia'
+        purpose = 'RSPCA Australia is an animal welfare organization in Australia. It works to prevent cruelty to animals by promoting animal welfare standards, conducting investigations, and providing shelter, adoption, and veterinary services for animals in need.'
+
+        # Display the information
+        st.write(f"Name: {name}")
+        st.write(f"Purpose: {purpose}")
+
+    if row1 == 'RSPCA Australia':
+        #Displaying Dataframes and Images
+        display_image('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnIz-AXLJ8KIPuKuJO2wJbPQVnXipcpqY449AMghhZmw&s')
+        
+        #RSPCA Australia
+        name = 'RSPCA Australia'
+        purpose = 'RSPCA Australia is an animal welfare organization in Australia. It works to prevent cruelty to animals by promoting animal welfare standards, conducting investigations, and providing shelter, adoption, and veterinary services for animals in need.'
+
+        # Display the information
+        st.write(f"Name: {name}")
+        st.write(f"Purpose: {purpose}")
 
 
 
+    row2 = option_menu(
+        menu_title      =   None,
+        options         =   ['Carita', 'WVA', 'TSF', 'RSPCA'],
+        menu_icon       =   None,
+        default_index   =   0,
+        orientation     =   'horizontal',
+        styles = {
+            "container": {
+                "display": "flex",
+                "padding": "20px 40px",
+                "gap": "50px",
+                "box-shadow": "0px 8px 8px -2px rgba(0, 0, 0, 0.341)",
+                "background-color": "#64B661"
+            },
+            "menu-title": {
+                "font-size": "35px",
+                "text-decoration": "none",
+                "color": "black",
+                "font-family": "'Calibri'",
+                "margin-right": "auto"
+            },
+            "nav": {
+                "list-style-type": "none",
+                "padding": "0",
+                "margin": "0"
+            },
+            "nav-link": {
+                "font-size": "25px",
+                "text-decoration": "none",
+                "color": "black",
+                "font-family": "'Calibri'",
+                "background-color": "#64B661"  # Background color
+            },
+            # Remove hover effect
+            "nav-link:hover": {
+                "color": "inherit",
+                "background-color": "inherent"
+            },
+            "icon": {
+            "display": "none"
+            },
+        }
+        
+    )
 
-# Navigation options
-if options == 'Home':
-    home()
-elif options == 'Animal Protection':
+    if row2 == 'Carita':
+
+        # Displaying Dataframes and Images
+        display_image('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiURz1xi1_VpLK2qwAGULMHmG1UGwRUX_DVwuTUnlOTw&s')
+
+        # Caritas Dataframe
+        name = 'Caritas'
+        purpose = 'Caritas Internationalis is a global network of Catholic charitable organizations, operating in over 200 countries. It provides aid, promotes social justice, and empowers communities in need worldwide.'
+
+        # Display the information
+        st.write(f"Name: {name}")
+        st.write(f"Purpose: {purpose}")
+
+    if row2 == 'WVA':
+        # Displaying Dataframes and Images
+        display_image('https://pbs.twimg.com/profile_images/1009985406069141504/c_0KvxaW_400x400.jpg')
+
+        # World Vision Australia Dataframe
+        name = 'World Vision Australia'
+        purpose = 'World Vision Australia is a humanitarian organization dedicated to helping children and communities in need through various programs, including child sponsorship, emergency relief, and community development.'
+
+        # Display the information
+        st.write(f"Name: {name}")
+        st.write(f"Purpose: {purpose}")
+
+    if row2 == 'TSF':
+        display_image('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnIz-AXLJ8KIPuKuJO2wJbPQVnXipcpqY449AMghhZmw&s')
+
+        # RSPCA Australia Dataframe
+        name = 'RSPCA Australia'
+        purpose = 'RSPCA Australia is an animal welfare organization in Australia. It works to prevent cruelty to animals by promoting animal welfare standards, conducting investigations, and providing shelter, adoption, and veterinary services for animals in need.'
+
+        # Display the information
+        st.write(f"Name: {name}")
+        st.write(f"Purpose: {purpose}")
+
+    if row2 == 'RSPCA':
+        #Displaying Dataframes and Images
+        display_image('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnIz-AXLJ8KIPuKuJO2wJbPQVnXipcpqY449AMghhZmw&s')
+        
+        #RSPCA Australia
+        name = 'RSPCA Australia'
+        purpose = 'RSPCA Australia is an animal welfare organization in Australia. It works to prevent cruelty to animals by promoting animal welfare standards, conducting investigations, and providing shelter, adoption, and veterinary services for animals in need.'
+
+        # Display the information
+        st.write(f"Name: {name}")
+        st.write(f"Purpose: {purpose}")
+
+
+if selected == 'Main':
+    main()
+elif selected == 'Animal protection':
     animal_protection()
-    charity_info()
-elif options == 'Aged Care':
+elif selected == 'Aged care':
     aged_care()
-    charity_info()
-elif options == 'Economic Social & Community Development':
+elif selected == 'Economic social and community development':
     economic_social_and_community_development()
-    charity_info()
-elif options == 'Emergency Relief':
+elif selected == 'Emergency relief':
     emergency_relief()
-    charity_info()
-elif options == 'Environmental Activities':
+elif selected == 'Environmental activities':
     environmental_activities()
-    charity_info()
-elif options == 'Hospital Services & Rehabilitation Activities':
+elif selected == 'Hospital services and rehabilitation activities':
     hospital_services()
-    charity_info()
