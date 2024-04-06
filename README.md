@@ -1,13 +1,13 @@
 # Flach
+Project for Codebrew 2024 Hackathon
 
 ## Overview
-
-Flach is a website developed for the Codebrew 2024 hackathon.
+Not-for-profit organisation.
+Website filters through Australian Charities and Not-for-profits Commission database to connect donors to reputable charities.
 
 ## Demo
 
 [[Demo Website]](https://main--flach-codebrew.netlify.app/)
-
 
 ## Technologies Used
 
@@ -50,13 +50,13 @@ To get started with Flach, follow these steps:
 
 5. Open it in your browser to view the project.
 
-
 ## Authors
-- Andre: [link to your profile]
-- Christine: [link to your profile]
-- Hedy: [link to your profile]
-- Lam: [link to your profile]
+- Andre: [\[link to your profile\]](https://github.com/NoNam312)
+- Christine: [\[link to Christine profile\]](https://github.com/kistxe)
+- Hedy: [\[link to Hedy profile\]](https://github.com/h3dysh1)
+- Lam: [\[link to your profile\]](https://github.com/artwork321)
 
 ## Acknowledgements
-
-[Give credit to any individuals, organizations, or resources that helped you in developing your project.]
+- Images from Unsplash
+- Dataset from [\[ACNC\]](https://www.acnc.gov.au/charity/charities)
+- Codebrew mentors
