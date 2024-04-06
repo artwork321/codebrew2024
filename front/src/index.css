@@ -164,6 +164,10 @@ a {
   margin-top: 50px;
 }
 
+#faqs .answer {
+  overflow-wrap: break-all;
+}
+
 
 /* Footer */
 footer {

@@ -6,7 +6,7 @@ Flach is a website developed for the Codebrew 2024 hackathon.
 
 ## Demo
 
-[[Semo Website]](https://main--flach-codebrew.netlify.app/)
+[[Demo Website]](https://main--flach-codebrew.netlify.app/)
 
 
 ## Technologies Used
