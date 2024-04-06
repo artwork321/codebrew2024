@@ -172,7 +172,6 @@ a {
 /* Footer */
 footer {
   display: flex;
-  flex-direction: row;
   background-color: #A8D6A761;
   padding: 10px 200px 30px;
   border-top: 3px solid black;
@@ -183,22 +182,17 @@ footer {
 #contact {
   margin-right: auto;
   width: 70%;
+  margin-top: 30px;
 }
 
-footer label {
+footer h3 {
   display: inline;
 }
 
-footer input {
-  width: 50%;
-  border: none;
-  border-bottom: 2px solid black;
-  background-color: white;
-}
-
-button:hover {
-  background-color: #ddd;
-  color: black;
+footer a {
+  font-weight: normal;
+  display: inline;
+  text-decoration: underline;
 }
 
 .button:hover {
