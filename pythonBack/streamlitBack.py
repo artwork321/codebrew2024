@@ -608,7 +608,7 @@ def main():
         vinnies_button = st.button('More Information!!')
 
         if vinnies_button == True:
-            st.page_link("pages/StVincent.py")
+            database_loader('St. Vincent de Paul Society (Vinnies)')
 
     if row2 == 'Cancer Council Australia':
         # Displaying Dataframes and Images
