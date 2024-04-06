@@ -1,8 +1,59 @@
-# React + Vite
+# Flach
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
 
-Currently, two official plugins are available:
+Flach is a website developed for the Codebrew 2024 hackathon.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Demo
+
+[Link to live demo, if available]
+
+
+## Technologies Used
+
+- React
+- CSS
+- Streamlit
+
+## Features
+
+- Search for charitable organizations by category or location
+- View detailed information about each organization
+
+## Getting Started
+
+To get started with Flach, follow these steps:
+
+1. Clone the repository:
+
+    ```bash
+    git clone https://github.com/artwork321/crewcode2024.git
+    ```
+
+2. Navigate to the front:
+
+    ```bash
+    cd front
+    ```
+
+3. Install dependencies:
+
+    ```bash
+    npm install
+    ```
+
+4. Run the development server:
+
+    ```bash
+    npm run dev
+    ```
+
+5. Open it in your browser to view the project.
+
+
+## Authors
+
+
+## Acknowledgements
+
+[Give credit to any individuals, organizations, or resources that helped you in developing your project.]

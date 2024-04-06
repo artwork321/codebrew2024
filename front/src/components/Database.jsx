@@ -13,14 +13,18 @@ function Database() {
     return (
         <div>
             <h1>find a charity</h1>
-            <div id="charities">
-                <Organisation image={aged} text="Aged care" />
-                <Organisation image={animal} text="Animal protection" />
-                <Organisation image={community} text="Economic social and community development" />
-                <Organisation image={emergency} text="Emergency relief" />
-                <Organisation image={picture5} text="Environmental activities" />
-                <Organisation image={hospital} text="Hospital services and rehabilitation activities" />
-            </div>
+            <a href="https://crewcode2024-dzmyt2hprnwrjjshdarvte.streamlit.app/">
+                <div id="charities">
+
+                    <Organisation image={aged} text="Aged care" />
+                    <Organisation image={animal} text="Animal protection" />
+                    <Organisation image={community} text="Economic social and community development" />
+                    <Organisation image={emergency} text="Emergency relief" />
+                    <Organisation image={picture5} text="Environmental activities" />
+                    <Organisation image={hospital} text="Hospital services and rehabilitation activities" />
+
+                </div>
+            </a>
 
         </div>
     )
