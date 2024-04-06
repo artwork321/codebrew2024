@@ -5,7 +5,7 @@ from PIL import Image
 import requests
 from io import BytesIO, StringIO
 import pandas as pd
-from pythonBack.dataloader import database_loader
+from dataloader import database_loader
 
 
 
