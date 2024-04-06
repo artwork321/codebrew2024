@@ -43,6 +43,5 @@ def database_loader(charity):
         st.write(data[0])
         st.write(data[1])
         st.write(data[2])  
-        row2
     else:
         st.error("Charity not found in the database")
