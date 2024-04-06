@@ -429,7 +429,7 @@ with st.sidebar:
     }
     )
 
-
+@st.cache
 def main():
     st.title('Charities')
     
